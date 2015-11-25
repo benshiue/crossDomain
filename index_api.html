@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Ember.js</title>
+</head>
+<body>
+  <div style="text-align:center">
+  <label id="ticket">
+     <b>Monitor Testing(Memory-usage):</b>
+  </label><br>
+
+  <b>Container:grafana</b>
+<input id="btn1" type="button" value="Last 5 mins" onclick="run5()" />
+<div id="5mins_div"></div>
+  <b>Container:heapster</b>
+<input id="btn2" type="button" value="Last 1 day" onclick="run15()" />
+<div id="15mins_div"></div>
+  <script src="js/libs/jquery-1.10.2.js"></script>
+  <script src="js/api_app.js"></script>
+
+</div>
+</body>
+</html>
