@@ -16,7 +16,6 @@ function auth() {
                 $.ajax({
 					type: 'Post',
 					url: endpoint,
-					headers: {'Access-Control-Allow-Origin': '*'},
 					crossDomain: true,
 					dataType: "json",
 					contentType:contentType,
