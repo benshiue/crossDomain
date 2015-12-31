@@ -1,26 +1,32 @@
 function auth() {
-        var endpoint = "https://oranwind.api-us1.com/admin/api.php?api_action=contact_add";
+        var endpoint = "https://api2.autopilothq.com/v1/contact";
         var requestBody;
 		var roleCode;
 		var key = "d0cd3bb6342ab6aed210958a04a9b50c5455a06dc455222fec6d23d6c0808428114df34b";
 		var api_action = "automation_contact_add";
 		var api_output = "json";
-		var contentType ="application/x-www-form-urlencoded; charset=utf-8";
+		var contentType ="application/json";
 		
 
         this.login = function(password) {
         	//console.log("USERNAME: " + $.cookie("USERNAME"));
 		
-		requestBody = {api_key: key, api_action: api_action, email: password, api_output: api_output};
+		requestBody = {"contact":{FirstName: key, LastName: api_action, Email: password}};
 		console.log("requestbody" + JSON.stringify(requestBody));
                 $.ajax({
-					type: 'Post',
 					url: endpoint,
-					crossDomain: true,
+					headers: {
+				        'Access-Control-Allow-Origin':'*',
+				        'autopilotapikey':'4ab0f5292e5848e3902eab0d8e302804',
+				        'Content-Type':'application/json'
+				    },
+					type: 'POST',
 					dataType: "json",
+					crossDomain: true,
 					contentType:contentType,
-					processData: false,
+					//processData: false,
 					data: JSON.stringify(requestBody),
+					//console.log(data);
 					//console.log("requestbody" + requestBody);
 					success: function(data) {
 						alert("post success");
@@ -29,7 +35,8 @@ function auth() {
                 	},
         	        error: function() {
 	//				alert("Login failed!!");
-                        }
+					alert("test");
+                       }
                 });
         };
 		
